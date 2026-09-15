@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survei Kepuasan Mahasiswa terhadap Layanan Kampus</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f2f4f7;
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #1d3557;
+    color: #fff;
+    padding: 24px 16px;
+    text-align: center;
+  }
+  header h1 { margin: 0 0 6px 0; font-size: 1.6rem; }
+  header p { margin: 0; font-size: 0.95rem; color: #cdd8e8; }
+  main {
+    max-width: 700px;
+    margin: 24px auto;
+    background: #fff;
+    padding: 24px 32px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  fieldset {
+    border: 1px solid #d0d7e2;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    padding: 16px 20px 20px;
+  }
+  legend {
+    font-weight: 600;
+    color: #1d3557;
+    padding: 0 8px;
+    font-size: 1.05rem;
+  }
+  .field {
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b9c2cf;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1d3557;
+  }
+  .radio-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+  .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checkbox-field label { margin-bottom: 0; font-weight: 400; }
+  small {
+    display: block;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  button {
+    background: #1d3557;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  button:hover { background: #16283f; }
+  footer {
+    text-align: center;
+    padding: 18px;
+    color: #6b7280;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Survei Kepuasan Mahasiswa</h1>
+  <p>Layanan Kampus &mdash; Isilah dengan data yang sebenarnya</p>
+</header>
+
+<main>
+  <form action="#" method="post">
+
+    <fieldset>
+      <legend>Data Diri</legend>
+
+      <div class="field">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" required>
+      </div>
+
+      <div class="field">
+        <label for="nim">NIM</label>
+        <input type="number" id="nim" name="nim" required minlength="8">
+        <small>Masukkan minimal 8 digit NIM</small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="nama@kampus.ac.id">
+      </div>
+
+      <div class="field">
+        <label for="fakultas">Fakultas</label>
+        <select id="fakultas" name="fakultas" required>
+          <option value="" disabled selected>-- Pilih Fakultas --</option>
+          <option value="teknik">Fakultas Teknik</option>
+          <option value="ekonomi">Fakultas Ekonomi dan Bisnis</option>
+          <option value="hukum">Fakultas Hukum</option>
+          <option value="kedokteran">Fakultas Kedokteran</option>
+          <option value="fisip">Fakultas Ilmu Sosial dan Ilmu Politik</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="semester">Semester Saat Ini</label>
+        <input type="number" id="semester" name="semester" min="1" max="8">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Penilaian Layanan Kampus</legend>
+
+      <fieldset>
+        <legend>Tingkat Kepuasan (1 = Sangat Tidak Puas, 5 = Sangat Puas)</legend>
+        <div class="radio-group">
+          <label for="puas1"><input type="radio" id="puas1" name="kepuasan" value="1" required> 1</label>
+          <label for="puas2"><input type="radio" id="puas2" name="kepuasan" value="2"> 2</label>
+          <label for="puas3"><input type="radio" id="puas3" name="kepuasan" value="3"> 3</label>
+          <label for="puas4"><input type="radio" id="puas4" name="kepuasan" value="4"> 4</label>
+          <label for="puas5"><input type="radio" id="puas5" name="kepuasan" value="5"> 5</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="saran">Saran / Keluhan</label>
+        <textarea id="saran" name="saran" rows="5" placeholder="Contoh: Layanan perpustakaan sebaiknya buka lebih lama pada masa ujian."></textarea>
+      </div>
+
+      <div class="field checkbox-field">
+        <input type="checkbox" id="kontak" name="kontak" value="setuju">
+        <label for="kontak">Saya setuju untuk dihubungi terkait survei ini</label>
+      </div>
+    </fieldset>
+
+    <button type="submit">Kirim Survei</button>
+  </form>
+</main>
+
+<footer>
+  &copy; 2026 Layanan Kemahasiswaan Kampus. Terima kasih atas partisipasi Anda.
+</footer>
+
+</body>
+</html>
